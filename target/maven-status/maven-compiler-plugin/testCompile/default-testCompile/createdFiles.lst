@@ -1,0 +1,8 @@
+stepDefination\Hooks.class
+stepDefination\TC01_Registration.class
+pageObject\MyAccountPage.class
+pageObject\RegistrationPage.class
+pageObject\BasePage.class
+factory\BaseClass.class
+runner\TestRunner.class
+pageObject\HomePage.class
