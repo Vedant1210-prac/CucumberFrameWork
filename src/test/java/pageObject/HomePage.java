@@ -9,6 +9,9 @@ public class HomePage extends BasePage {
 	@FindBy(css="a.ico-register")
 	WebElement registerBtn;
 	
+	@FindBy(xpath="//a[text()='Log in']")
+	WebElement HPLoginBtn;
+	
 	public HomePage (WebDriver driver) {
 		
 		super(driver);
@@ -24,4 +27,12 @@ public class HomePage extends BasePage {
 		return registerBtn.isDisplayed();
 	}
 	
+	public void clickOnLoginBtn() {
+		HPLoginBtn.click();
+	}
+	
+	public boolean LoginBtnVisibility() {
+		
+		return HPLoginBtn.isDisplayed();
+	}
 }

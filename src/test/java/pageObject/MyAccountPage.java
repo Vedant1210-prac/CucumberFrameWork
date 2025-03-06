@@ -8,6 +8,9 @@ public class MyAccountPage extends BasePage {
 	
 	@FindBy(xpath="//div[@class='result']")
 	WebElement registrationMsg;
+	
+	@FindBy(xpath="//a[text()='Log out']")
+	WebElement LogOutBtn;
 
 	public MyAccountPage(WebDriver driver) {
 		
@@ -17,5 +20,10 @@ public class MyAccountPage extends BasePage {
 	public boolean RegMsgStatus() {
 		
 		return registrationMsg.isDisplayed();
+	}
+	
+	public boolean LogoutBtn_isDisplayed() {
+		
+		return LogOutBtn.isDisplayed();
 	}
 }

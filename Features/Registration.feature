@@ -1,4 +1,6 @@
+@Functionality
 Feature: Registration Fearure
+
 
   Scenario: Verify the registration functionality
     Given user should be nopcommerce home page

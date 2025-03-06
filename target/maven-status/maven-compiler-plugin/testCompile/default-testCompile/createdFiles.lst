@@ -1,8 +1,13 @@
-stepDefination\Hooks.class
 stepDefination\TC01_Registration.class
 pageObject\MyAccountPage.class
 pageObject\RegistrationPage.class
+stepDefination\LoginDDT.class
+stepDefination\RegistrationUsingDataTable.class
+stepDefination\TC02_LoginWithValidCred.class
 pageObject\BasePage.class
 factory\BaseClass.class
+hooks\Hooks.class
 runner\TestRunner.class
 pageObject\HomePage.class
+pageObject\LoginPage.class
+utilities\DataReader.class

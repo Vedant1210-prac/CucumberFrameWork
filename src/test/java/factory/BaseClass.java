@@ -2,15 +2,18 @@ package factory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
 
 
 import org.apache.commons.lang3.RandomStringUtils;
-
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,6 +32,30 @@ public class BaseClass {
 		String execution_env = p.getProperty("execution_env");
 		String os = p.getProperty("os");
 		String browser = p.getProperty("browser");
+		
+		if(execution_env.equalsIgnoreCase("remote")) {
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			
+			switch(os.toLowerCase()) {
+			case "windows": capabilities.setPlatform(Platform.WIN11);
+			break;
+			case "mac": capabilities.setPlatform(Platform.MAC);
+			break;
+			default: System.out.println("Invalid OS");
+			return null;
+			}
+			
+			switch(browser.toLowerCase()) {
+			case "chrome": capabilities.setBrowserName("chrome");
+			break;
+			case "edge": capabilities.setBrowserName("edge");
+			break;
+			default: System.out.println("Invalid browser");
+			return null;
+			}
+			
+			driver = new RemoteWebDriver(new URL("http://192.168.31.166:4444/wd/hub"), capabilities);
+		}
 		
 		if(execution_env.equalsIgnoreCase("local")) {
 			
